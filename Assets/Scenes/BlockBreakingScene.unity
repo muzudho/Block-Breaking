@@ -295,7 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 19436689}
   m_Layer: 5
-  m_Name: Clear
+  m_Name: Game Clear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3702,7 +3702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 714216332}
-  clearGo: {fileID: 19436688}
+  gameClear: {fileID: 19436688}
   restartButton: {fileID: 1317285683}
 --- !u!1001 &2037384673
 PrefabInstance:

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOver;
-    [SerializeField] private GameObject clearGo;
+    [SerializeField] private GameObject gameClear;
     [SerializeField] private GameObject restartButton;
 
     // Start is called before the first frame update
@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
         // 残ったブロックの数をカウント
         var targetCount = GameObject.FindObjectsOfType<Target>().Count();
 
-        if (targetCount < 0)
+        // Game Clear
+        if (targetCount < 1)
         {
             ToClear();
         }
@@ -38,13 +39,12 @@ public class GameManager : MonoBehaviour
     private void ToClear()
     {
         Time.timeScale = 0; // 時を止める
-        clearGo.SetActive(true);
+        gameClear.SetActive(true);
         restartButton.SetActive(true);
     }
 
     public void RestartGame()
     {
-        Debug.Log("RestartGame");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
