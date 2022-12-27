@@ -6,11 +6,12 @@ public class BallMove : MonoBehaviour
 {
     [SerializeField] private float rightSpeed;
     [SerializeField] private float upSpeed;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -18,6 +19,17 @@ public class BallMove : MonoBehaviour
     {
         transform.Translate(Vector3.right * Time.deltaTime * rightSpeed);
         transform.Translate(Vector3.up * Time.deltaTime * upSpeed);
+    }
+
+    private void Update()
+    {
+        // Game Over
+        if(transform.position.y <= -4.5f) // -4.4f ‚ª’ê•ÓA‚»‚êˆÈ‰º‚Í‰æ–ÊŠO‚ð‘z’è
+        {
+            rightSpeed = 0f;
+            upSpeed = 0f;
+            gameManager.ToGameOver();   
+        }
     }
 
     private void OnTriggerEnter(Collider other)
