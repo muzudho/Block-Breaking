@@ -20,9 +20,7 @@ public class TargetSurface : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log($"OnTriggerEnter:{other.gameObject.name}");
-        
+    {        
         var targetScript = whole.GetComponent<Target>();
         targetScript.OnSurfaceHitted();
     }

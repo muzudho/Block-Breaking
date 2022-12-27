@@ -34,8 +34,6 @@ public class BallMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Ball collide to {other.gameObject.name}");
-
         if (other.gameObject.name == "Wall Top")
         {
             upSpeed *= -1; // è„â∫îΩì]
